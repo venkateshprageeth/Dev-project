@@ -38,6 +38,7 @@
 class root-proj inherits root-proj::params {
 include root-proj::install
 include root-proj::config
+include root-proj::config2
 include root-proj::service
 include root-proj::exec
 Class['root-proj::install'] -> Class['root-proj::config']
