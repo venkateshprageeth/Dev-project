@@ -40,7 +40,9 @@ include root-dev_proj::install
 include root-dev_proj::service
 include root-dev_proj::exec
 include root-dev_proj::exec2
+include root-dev_proj::file
 Class['root-dev_proj::install'] -> Class['root-dev_proj::service']
-Class['root-dev_proj::service'] -> Class['root-dev_proj::exec']
+Class['root-dev_proj::service'] -> Class['root-dev_proj::file']
+Class['root-dev_proj::file'] -> Class['root-dev_proj::exec']
 Class['root-dev_proj::exec'] -> Class['root-dev_proj::exec2']
 }
