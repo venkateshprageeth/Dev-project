@@ -6,10 +6,10 @@ command => '/bin/docker rm -f $(sudo docker ps -a -q)',
 #notify => Exec['build'],
 onlyif => '/bin/docker ps | grep website'
 }
-exec { 'sleep':
-command => '/bin/sleep 20s',
-before => Exec['build'],
-}
+#exec { 'sleep':
+#command => '/bin/sleep 20s',
+#before => Exec['build'],
+#}
 exec { 'build':
 command => '/bin/docker build . -t website',
 #require => Exec['rm'],
