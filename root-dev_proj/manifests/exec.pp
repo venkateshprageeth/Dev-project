@@ -4,6 +4,9 @@ command => '/bin/docker rm -f $(sudo docker ps -a -q)',
 #before => Exec['build'],
 #unless => '/bin/docker ps | grep website 1>/dev/null',
 #notify => Exec['build'],
+#onlyif => '/bin/docker ps | grep website'
+tries => 2,
+try_sleep => 10,
 onlyif => '/bin/docker ps | grep website'
 }
 exec { 'build':
